@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import "materialize-css/dist/css/materialize.css";
+import store from "./store/store";
+
+window.store = store;
 
 const Footer = () => {
   return (
