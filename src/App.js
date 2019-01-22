@@ -3,55 +3,32 @@ import "./App.css";
 import "materialize-css/dist/css/materialize.css";
 import { receiveTodos, receiveTodo } from "./actions/todo_actions";
 import { allTodos } from "./reducers/selectors";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Content from "./components/Content";
 
 window.allTodos = allTodos;
 
-const Footer = () => {
+const Card = () => {
   return (
-    <footer className="section page-footer">
-      <div className="container center-align">&#169; Tyler Newman</div>
-    </footer>
-  );
-};
-
-const Header = () => {
-  return (
-    <header>
-      <nav className="navbar dark">
-        <div className="nav-wrapper">
-          <a href="#" className="brand-logo center">
-            Todo App
-          </a>
-        </div>
-      </nav>
-    </header>
-  );
-};
-
-const Content = () => {
-  return (
-    <main>
-      <div className="container">
-        <div className="row">
-          <div className="col s12 m6">
-            <div className="card blue-grey darken-1">
-              <div className="card-content white-text">
-                <span className="card-title">Card Title</span>
-                <p>
-                  I am a very simple card. I am good at containing small bits of
-                  information. I am convenient because I require little markup
-                  to use effectively.
-                </p>
-              </div>
-              <div className="card-action">
-                <a href="#">This is a link</a>
-                <a href="#">This is a link</a>
-              </div>
-            </div>
+    <div className="row">
+      <div className="col s12 m6 offset-m3">
+        <div className="card blue-grey darken-1">
+          <div className="card-content white-text">
+            <span className="card-title">Card Title</span>
+            <p>
+              I am a very simple card. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+          <div className="card-action">
+            <a href="#">This is a link</a>
+            <a href="#">This is a link</a>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
@@ -60,7 +37,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Content />
+        <Content>
+          <Card />
+        </Content>
         <Footer />
       </div>
     );
