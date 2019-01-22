@@ -5,6 +5,7 @@ import Root from "./Root";
 import * as serviceWorker from "./serviceWorker";
 import configureStore from "./store/store";
 const store = configureStore();
+window.store = store;
 
 ReactDOM.render(<Root store={store} />, document.getElementById("root"));
 

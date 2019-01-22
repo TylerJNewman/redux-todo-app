@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import "materialize-css/dist/css/materialize.css";
-import store from "./store/store";
 import { receiveTodos, receiveTodo } from "./actions/todo_actions";
+import allTodos from "./reducers/selectors";
 
-window.store = store;
-window.receiveTodos = receiveTodos;
-window.receiveTodo = receiveTodo;
+window.allTodos = allTodos;
 
 const Footer = () => {
   return (
