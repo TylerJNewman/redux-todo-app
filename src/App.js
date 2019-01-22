@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import "./App.css";
 import "materialize-css/dist/css/materialize.css";
 import store from "./store/store";
+import { receiveTodos, receiveTodo } from "./actions/todo_actions";
 
 window.store = store;
+window.receiveTodos = receiveTodos;
+window.receiveTodo = receiveTodo;
 
 const Footer = () => {
   return (
@@ -21,17 +24,6 @@ const Header = () => {
           <a href="#" className="brand-logo center">
             Todo App
           </a>
-          {/* <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>
-              <a href="sass.html">Sass</a>
-            </li>
-            <li>
-              <a href="badges.html">Components</a>
-            </li>
-            <li>
-              <a href="collapsible.html">JavaScript</a>
-            </li>
-          </ul> */}
         </div>
       </nav>
     </header>
