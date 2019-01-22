@@ -6,6 +6,7 @@ import { allTodos } from "./reducers/selectors";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Content from "./components/Content";
+import TodoList from "./components/todos/TodoListContainer";
 
 window.allTodos = allTodos;
 
@@ -39,6 +40,7 @@ class App extends Component {
         <Header />
         <Content>
           <Card />
+          <TodoList />
         </Content>
         <Footer />
       </div>
