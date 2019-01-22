@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "materialize-css/dist/css/materialize.css";
 import { receiveTodos, receiveTodo } from "./actions/todo_actions";
-import allTodos from "./reducers/selectors";
+import { allTodos } from "./reducers/selectors";
 
 window.allTodos = allTodos;
 
