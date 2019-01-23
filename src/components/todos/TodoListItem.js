@@ -4,7 +4,7 @@ class TodoListItem extends React.Component {
   render() {
     const { todo, updateTodo } = this.props;
     return (
-      <div className="row">
+      <article className="row">
         <div className="col s12 m6 offset-m3">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
@@ -12,12 +12,13 @@ class TodoListItem extends React.Component {
               <p>{todo.body}</p>
             </div>
             <div className="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
+              <a href="#!" className="delete">
+                <i className="material-icons">close</i>
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </article>
     );
   }
 }
