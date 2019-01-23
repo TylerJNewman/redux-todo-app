@@ -8,11 +8,7 @@ class TodoList extends React.Component {
       <TodoListItem key={`todo-list-item${todo.id}`} todo={todo} />
     ));
 
-    return (
-      <div>
-        <ul className="todo-list">{todoItems}</ul>
-      </div>
-    );
+    return <div className="todo-list">{todoItems}</div>;
   }
 }
 
