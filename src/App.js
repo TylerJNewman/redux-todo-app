@@ -7,10 +7,15 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Content from "./components/Content";
 import TodoList from "./components/todos/TodoListContainer";
+import M from "materialize-css/dist/js/materialize.min.js";
 
 window.allTodos = allTodos;
 
 class App extends Component {
+  componentDidMount() {
+    M.AutoInit();
+  }
+
   render() {
     return (
       <div className="App">
