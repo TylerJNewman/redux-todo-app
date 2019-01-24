@@ -21,6 +21,7 @@ export class TodoForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger;
     const todo = Object.assign({}, this.state, { id: uuidv4() });
     this.props.receiveTodo(todo);
     this.setState({
@@ -34,40 +35,40 @@ export class TodoForm extends Component {
       <article className="row">
         <div className="col s12 m6 offset-m3">
           <div className="card blue-grey darken-1">
-            <div className="card-content white-text">
-              <input
-                className="input"
-                onChange={this.update("title")}
-                ref="title"
-                value={this.state.title}
-                placeholder="Add Title"
-                required
-              />
+            <form className="todo-form" onSubmit={this.handleSubmit}>
+              <div className="card-content white-text">
+                <input
+                  className="input"
+                  onChange={this.update("title")}
+                  ref="title"
+                  value={this.state.title}
+                  placeholder="Add Title"
+                  required
+                />
 
-              <textarea
-                id="textarea1"
-                ref="body"
-                className="materialize-textarea"
-                onChange={this.update("body")}
-                value={this.state.body}
-                placeholder="Add Body"
-                required
-              />
-            </div>
-            <div className="card-action">
-              {/* <a href="#!" className="delete">
+                <textarea
+                  id="textarea1"
+                  ref="body"
+                  className="materialize-textarea"
+                  onChange={this.update("body")}
+                  value={this.state.body}
+                  placeholder="Add Body"
+                  required
+                />
+              </div>
+              <div className="card-action">
+                {/* <a href="#!" className="delete">
                 <i className="material-icons">submit</i>
               </a> */}
-              <button
-                className="btn waves-effect waves-light"
-                type="submit"
-                name="action"
-                onClick={this.handleSubmit}
-              >
-                Create
-                <i className="material-icons right">send</i>
-              </button>
-            </div>
+                <button
+                  className="btn waves-effect waves-light"
+                  type="submit"
+                  name="action"
+                >
+                  <i className="material-icons">add</i>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </article>
