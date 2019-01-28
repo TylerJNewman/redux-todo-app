@@ -4,7 +4,7 @@ import TodoForm from "./TodoForm";
 
 class TodoList extends React.Component {
   render() {
-    const { todos, receiveTodo } = this.props;
+    const { todos, receiveTodo, removeTodo } = this.props;
     const todoItems = todos
       .reverse()
       .map(todo => (
@@ -12,6 +12,7 @@ class TodoList extends React.Component {
           key={`todo-list-item${todo.id}`}
           todo={todo}
           receiveTodo={receiveTodo}
+          removeTodo={removeTodo}
         />
       ));
 
