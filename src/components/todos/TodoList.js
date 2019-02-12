@@ -9,7 +9,7 @@ class TodoList extends React.Component {
       .reverse()
       .map(todo => (
         <TodoListItem
-          key={`todo-list-item${todo.id}`}
+          key={todo.id}
           todo={todo}
           receiveTodo={receiveTodo}
           removeTodo={removeTodo}

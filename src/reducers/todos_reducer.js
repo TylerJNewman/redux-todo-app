@@ -34,7 +34,7 @@ const todosReducer = (state = initialState, action) => {
       let newState = {};
       let id = action.todoId;
       Object.keys(state)
-        .filter(key => parseInt(key) !== id)
+        .filter(key => parseInt(key) !== id && key !== id)
         .map(key => (newState[key] = state[key]));
       return newState;
     default:
