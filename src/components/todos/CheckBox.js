@@ -1,20 +1,22 @@
 import React from "react";
+import { connect } from "react-redux";
+import { receiveTodo } from "../../actions/todo_actions.js";
 
 class CheckBox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { checked: "" };
     this.toggleCheckBox = this.toggleCheckBox.bind(this);
   }
 
   toggleCheckBox() {
-    let checked = this.state.checked === "checked" ? "" : "checked";
-    this.setState({
-      checked
-    }); // reset form
+    const toggledTodo = Object.assign({}, this.props.todo, {
+      done: !this.props.todo.done
+    });
+    this.props.receiveTodo(toggledTodo);
   }
 
   render() {
+    const { todo } = this.props;
     return (
       <a>
         <form className="left checkbox-form" action="#">
@@ -22,7 +24,7 @@ class CheckBox extends React.Component {
             <input
               type="checkbox"
               className="checkbox-white"
-              checked={this.state.checked}
+              checked={todo.done}
               onChange={this.toggleCheckBox}
             />
             <span />
@@ -33,4 +35,13 @@ class CheckBox extends React.Component {
   }
 }
 
-export default CheckBox;
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+  receiveTodo: todo => dispatch(receiveTodo(todo))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CheckBox);

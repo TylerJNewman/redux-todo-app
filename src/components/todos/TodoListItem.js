@@ -40,7 +40,7 @@ class TodoListItem extends React.Component {
                 >
                   <i className="material-icons">close</i>
                 </a>
-                <CheckBox />
+                <CheckBox todo={todo} />
               </div>
             </div>
           </div>
