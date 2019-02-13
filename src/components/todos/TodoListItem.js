@@ -1,5 +1,6 @@
 import React from "react";
 import CheckBox from "./CheckBox";
+import "./TodoListItem.css";
 
 class TodoListItem extends React.Component {
   constructor(props) {

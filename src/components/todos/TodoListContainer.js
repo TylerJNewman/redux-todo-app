@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import TodoList from "./TodoList";
-import "./TodoListItem.css";
+
 // Actions
 import {
   receiveTodos,
