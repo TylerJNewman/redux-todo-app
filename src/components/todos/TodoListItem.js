@@ -7,26 +7,38 @@ class TodoListItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { scaleIn: "scale-out" };
+    this.state = { scale: "scale-out", detail: false };
 
+    this.toggleDetail = this.toggleDetail.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
     setTimeout(() => {
-      this.setState({ scaleIn: "scale-in" });
+      this.setState({ scale: "scale-in" });
     }, 1);
   }
 
+  // componentWillUnmount() {
+  //   this.setState({ scale: "scale-out" });
+  // }
+
   handleDelete() {
-    this.props.removeTodo(this.props.todo.id);
+    this.setState({ scale: "scale-out" });
+    setTimeout(() => {
+      this.props.removeTodo(this.props.todo.id);
+    }, 250);
+  }
+
+  toggleDetail() {
+    this.setState({ detail: !this.detail });
   }
 
   render() {
     const { todo, updateTodo, removeTodo } = this.props;
 
     return (
-      <div className={"scale-transition " + this.state.scaleIn}>
+      <div className={"scale-transition " + this.state.scale}>
         <article className="row">
           <div className="col s12 m6 offset-m3">
             <div className="card blue-grey darken-1">
