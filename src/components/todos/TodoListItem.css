@@ -19,3 +19,7 @@
 .todo-list .row {
   margin-top: 20px;
 }
+
+.todo-list .card-content {
+  white-space: pre-wrap;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import CheckBox from "./CheckBox";
 import "./TodoListItem.css";
+import TodoDetailViewContainer from "./TodoDetailViewContainer";
 
 class TodoListItem extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class TodoListItem extends React.Component {
             <div className="card blue-grey darken-1">
               <div className="card-content white-text">
                 <span className="card-title">{todo.title}</span>
-                <p>{todo.body}</p>
+                <TodoDetailViewContainer todo={todo} />
               </div>
               <div className="card-action">
                 <a
