@@ -19,10 +19,6 @@ class TodoListItem extends React.Component {
     }, 1);
   }
 
-  // componentWillUnmount() {
-  //   this.setState({ scale: "scale-out" });
-  // }
-
   handleDelete() {
     this.setState({ scale: "scale-out" });
     setTimeout(() => {
@@ -31,7 +27,7 @@ class TodoListItem extends React.Component {
   }
 
   toggleDetail() {
-    this.setState({ detail: !this.detail });
+    this.setState({ detail: !this.state.detail });
   }
 
   render() {
@@ -43,8 +39,10 @@ class TodoListItem extends React.Component {
           <div className="col s12 m6 offset-m3">
             <div className="card blue-grey darken-1">
               <div className="card-content white-text">
-                <span className="card-title">{todo.title}</span>
-                <TodoDetailViewContainer todo={todo} />
+                <span className="card-title" onClick={this.toggleDetail}>
+                  {todo.title}
+                </span>
+                {this.state.detail && <TodoDetailViewContainer todo={todo} />}
               </div>
               <div className="card-action">
                 <a
