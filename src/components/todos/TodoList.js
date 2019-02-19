@@ -18,7 +18,7 @@ class TodoList extends React.Component {
         />
       ));
     const todoModals = todos.map(todo => (
-      <div id="{todo.id}" key={todo.id} className="modal blue-grey darken-1">
+      <div id={todo.id} key={todo.id} className="modal blue-grey darken-1">
         <div className="modal-content white-text">
           <h4>{todo.title}</h4>
           <StepListContainer todo_id={todo.id} />

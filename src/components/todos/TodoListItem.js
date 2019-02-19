@@ -27,6 +27,7 @@ class TodoListItem extends React.Component {
 
   render() {
     const { todo, updateTodo, removeTodo } = this.props;
+    const modalRef = "#" + todo.id;
 
     return (
       <div className={"scale-transition " + this.state.scale}>
@@ -34,7 +35,7 @@ class TodoListItem extends React.Component {
           <div className="col s12 m6 offset-m3">
             <div className="card blue-grey darken-1">
               <div className="card-content white-text">
-                <span className="card-title modal-trigger" href="#{todo.id}">
+                <span className="card-title modal-trigger" href={modalRef}>
                   {todo.title}
                 </span>
               </div>
