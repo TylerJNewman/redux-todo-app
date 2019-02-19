@@ -35,7 +35,6 @@ class StepForm extends React.Component {
           className="input"
           ref="body"
           value={this.state.body}
-          placeholder="google store directions"
           onChange={this.update("body")}
           required
         />
