@@ -44,7 +44,7 @@ export class TodoForm extends Component {
                   placeholder="Add Title"
                   required
                 />
-
+                {/* 
                 <textarea
                   id="textarea1"
                   ref="body"
@@ -53,7 +53,7 @@ export class TodoForm extends Component {
                   value={this.state.body}
                   placeholder="Add Body"
                   required
-                />
+                /> */}
               </div>
               <div className="card-action">
                 {/* <a href="#!" className="delete">

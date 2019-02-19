@@ -23,7 +23,7 @@ class StepListItem extends React.Component {
     return (
       <li className="step-header">
         <div className="step-info">
-          <h3>{step.title}</h3>
+          <span>{step.title}</span>
           <p>{step.body}</p>
         </div>
         <div className="step-buttons">
