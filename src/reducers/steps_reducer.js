@@ -44,7 +44,6 @@ const stepsReducer = (state = initialState, action) => {
       return Object.assign({}, state, { [action.step.id]: action.step });
     case REMOVE_STEP:
       nextState = Object.assign({}, state);
-      debugger;
       delete nextState[action.step.id];
       return nextState;
     default:

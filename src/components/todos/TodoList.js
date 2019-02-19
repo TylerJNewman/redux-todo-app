@@ -18,21 +18,8 @@ class TodoList extends React.Component {
         />
       ));
     const todoModals = todos.map(todo => (
-      <div id="{todo.id}" className="modal blue-grey darken-1">
-        {/* <div className="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
-        <div className="modal-footer">
-          <a
-            href="#!"
-            className="modal-close waves-effect waves-green btn-flat"
-          >
-            Agree
-          </a>
-        </div> */}
-        {/* <TodoDetailViewContainer todo={todo} /> */}
-        <div class="modal-content white-text">
+      <div id="{todo.id}" key={todo.id} className="modal blue-grey darken-1">
+        <div className="modal-content white-text">
           <h4>{todo.title}</h4>
           <StepListContainer todo_id={todo.id} />
         </div>

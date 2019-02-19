@@ -9,7 +9,6 @@ class TodoListItem extends React.Component {
 
     this.state = { scale: "scale-out", detail: false };
 
-    this.toggleDetail = this.toggleDetail.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -26,10 +25,6 @@ class TodoListItem extends React.Component {
     }, 250);
   }
 
-  toggleDetail() {
-    this.setState({ detail: !this.state.detail });
-  }
-
   render() {
     const { todo, updateTodo, removeTodo } = this.props;
 
@@ -39,13 +34,9 @@ class TodoListItem extends React.Component {
           <div className="col s12 m6 offset-m3">
             <div className="card blue-grey darken-1">
               <div className="card-content white-text">
-                {/* <span className="card-title" onClick={this.toggleDetail}>
-                  {todo.title}
-                </span> */}
                 <span className="card-title modal-trigger" href="#{todo.id}">
                   {todo.title}
                 </span>
-                {this.state.detail && <TodoDetailViewContainer todo={todo} />}
               </div>
               <div className="card-action">
                 <a

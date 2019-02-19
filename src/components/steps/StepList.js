@@ -16,15 +16,4 @@ const StepList = ({ steps = [], todo_id, receiveStep }) => {
   );
 };
 
-// const StepList = ({ steps, todo_id, receiveStep }) => {
-//   const stepItems = steps.map(step => (
-//     <StepListItemContainer key={step.id} step={step} />
-//   ));
-//   return (
-//     <div>
-//       hello // <ul className="step-list">{stepItems}</ul>
-//     </div>
-//   );
-// };
-
 export default StepList;
