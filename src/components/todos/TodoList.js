@@ -3,8 +3,13 @@ import TodoListItem from "./TodoListItem";
 import TodoForm from "./TodoForm";
 import TodoDetailViewContainer from "./TodoDetailViewContainer";
 import StepListContainer from "../steps/StepListContainer";
+import M from "materialize-css/dist/js/materialize.min.js";
 
 class TodoList extends React.Component {
+  componentDidUpdate() {
+    var elems = document.querySelectorAll(".modal");
+    M.Modal.init(elems);
+  }
   render() {
     const { todos, receiveTodo, removeTodo } = this.props;
     const todoItems = todos

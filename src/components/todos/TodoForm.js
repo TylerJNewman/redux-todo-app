@@ -21,7 +21,9 @@ export class TodoForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const todo = Object.assign({}, this.state, { id: uuidv4() });
+    var uuid = uuidv4();
+    var cleanId = uuid.replace(/-/g, "");
+    const todo = Object.assign({}, this.state, { id: 5 });
     this.props.receiveTodo(todo);
     this.setState({
       title: "",
