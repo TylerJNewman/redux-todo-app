@@ -42,12 +42,9 @@ class TodoListItem extends React.Component {
                 {/* <span className="card-title" onClick={this.toggleDetail}>
                   {todo.title}
                 </span> */}
-                <a
-                  className="waves-effect waves-light btn modal-trigger"
-                  href="#modal1"
-                >
+                <span className="card-title modal-trigger" href="#{todo.id}">
                   {todo.title}
-                </a>
+                </span>
                 {this.state.detail && <TodoDetailViewContainer todo={todo} />}
               </div>
               <div className="card-action">

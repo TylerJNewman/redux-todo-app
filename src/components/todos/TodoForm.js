@@ -55,10 +55,8 @@ export class TodoForm extends Component {
                   required
                 /> */}
               </div>
-              <div className="card-action">
-                {/* <a href="#!" className="delete">
-                <i className="material-icons">submit</i>
-              </a> */}
+              {/* <div className="card-action">
+
                 <button
                   className="btn waves-effect waves-light"
                   type="submit"
@@ -66,7 +64,7 @@ export class TodoForm extends Component {
                 >
                   <i className="material-icons">add</i>
                 </button>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>
