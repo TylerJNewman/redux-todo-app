@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import StepListContainer from "../steps/StepListContainer";
 
 export class TodoDetailView extends Component {
   render() {
@@ -6,7 +7,7 @@ export class TodoDetailView extends Component {
     return (
       <div>
         <p className="todo-body">{todo.body}</p>
-        {/* <StepListContainer todo_id={todo.id} /> */}
+        <StepListContainer todo_id={todo.id} />
       </div>
     );
   }
