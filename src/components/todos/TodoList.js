@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import TodoListItem from "./TodoListItem";
+import TodoListModal from "./TodoListModal";
 import TodoForm from "./TodoForm";
 import TodoDetailViewContainer from "./TodoDetailViewContainer";
-import StepListContainer from "../steps/StepListContainer";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 class TodoList extends React.Component {
-  componentDidUpdate() {
-    var elems = document.querySelectorAll(".modal");
-    M.Modal.init(elems);
-  }
+  // componentDidUpdate() {
+  //   debugger;
+  //   var elems = document.querySelectorAll(".modal");
+  //   M.Modal.init(elems);
+  // }
   render() {
     const { todos, receiveTodo, removeTodo } = this.props;
     const todoItems = todos
@@ -23,12 +24,7 @@ class TodoList extends React.Component {
         />
       ));
     const todoModals = todos.map(todo => (
-      <div id={todo.id} key={todo.id} className="modal blue-grey darken-1">
-        <div className="modal-content white-text">
-          <h4>{todo.title}</h4>
-          <StepListContainer todo_id={todo.id} />
-        </div>
-      </div>
+      <TodoListModal key={todo.id} todo={todo} />
     ));
 
     return (

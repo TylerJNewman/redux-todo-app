@@ -1,5 +1,6 @@
 import React from "react";
-import CheckBox from "./CheckBox";
+import Checkbox from "../CheckBox";
+import classnames from "classnames";
 import "./TodoListItem.css";
 import TodoDetailViewContainer from "./TodoDetailViewContainer";
 
@@ -7,9 +8,14 @@ class TodoListItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { scale: "scale-out", detail: false };
+    this.state = {
+      scale: "scale-out",
+      detail: false,
+      checked: this.props.todo.done
+    };
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.toggleCheckBox = this.toggleCheckBox.bind(this);
   }
 
   componentDidMount() {
@@ -25,17 +31,31 @@ class TodoListItem extends React.Component {
     }, 250);
   }
 
+  toggleCheckBox() {
+    this.setState({ checked: !this.state.checked });
+    const toggledTodo = Object.assign({}, this.props.todo, {
+      done: !this.props.todo.done
+    });
+    this.props.receiveTodo(toggledTodo);
+  }
+
   render() {
+    const { checked } = this.state;
     const { todo, updateTodo, removeTodo } = this.props;
     const modalRef = "#" + todo.id;
-
+    const cardTitleClassName = classnames("card-title", "modal-trigger", {
+      strike: checked
+    });
     return (
       <div className={"scale-transition " + this.state.scale}>
         <article className="row">
           <div className="col s12 m6 offset-m3">
             <div className="card blue-grey darken-1">
               <div className="card-content white-text">
-                <span className="card-title modal-trigger" href={modalRef}>
+                <span
+                  className={cardTitleClassName + " " + this.state.checked}
+                  href={modalRef}
+                >
                   {todo.title}
                 </span>
               </div>
@@ -47,7 +67,11 @@ class TodoListItem extends React.Component {
                 >
                   <i className="material-icons">close</i>
                 </a>
-                <CheckBox todo={todo} />
+                <Checkbox
+                  checked={todo.done}
+                  onStateChanged={this.toggleCheckBox}
+                  className="checkbox-white"
+                />
               </div>
             </div>
           </div>
