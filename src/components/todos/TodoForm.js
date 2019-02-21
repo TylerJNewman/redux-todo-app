@@ -6,27 +6,18 @@ export class TodoForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      title: "",
-      body: "",
-      done: false
-    };
-
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  update(property) {
-    return e => this.setState({ [property]: e.target.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const todo = Object.assign({}, this.state, { id: uuidv4() });
+    const todo = Object.assign(
+      {},
+      { title: this.title.value, done: false },
+      { id: uuidv4() }
+    );
     this.props.receiveTodo(todo);
-    this.setState({
-      title: "",
-      body: ""
-    }); // reset form
+    this.title.value = "";
   }
 
   render() {
@@ -38,11 +29,10 @@ export class TodoForm extends Component {
               <div className="card-content white-text">
                 <input
                   className="input"
-                  onChange={this.update("title")}
-                  ref="title"
-                  value={this.state.title}
+                  ref={title => (this.title = title)}
                   placeholder="Add Title"
                   required
+                  value={this.props.title}
                 />
                 {/* 
                 <textarea
