@@ -1,6 +1,10 @@
 export const RECEIVE_TODOS = "RECEIVE_TODOS";
 export const RECEIVE_TODO = "RECEIVE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
+export const SET_VISIBILITY_FILTER = "SET_VISIBILITY_FILTER";
+export const SHOW_ALL = "SHOW_ALL";
+export const SHOW_COMPLETED = "SHOW_COMPLETED";
+export const SHOW_ACTIVE = "SHOW_ACTIVE";
 
 export function receiveTodos(todos) {
   return {
@@ -20,3 +24,14 @@ export const removeTodo = todoId => ({
   type: REMOVE_TODO,
   todoId
 });
+
+export const setVisibilityFilter = filter => ({
+  type: SET_VISIBILITY_FILTER,
+  filter
+});
+
+export const VisibilityFilters = {
+  SHOW_ALL: SHOW_ALL,
+  SHOW_COMPLETED: SHOW_COMPLETED,
+  SHOW_ACTIVE: SHOW_ACTIVE
+};

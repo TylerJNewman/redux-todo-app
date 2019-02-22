@@ -17,7 +17,8 @@ export class TodoForm extends Component {
     const todo = Object.assign(
       {},
       { title: this.input.value },
-      { id: uuidv4() }
+      { id: uuidv4() },
+      { done: false }
     );
     this.props.receiveTodo(todo);
     this.input.value = "";

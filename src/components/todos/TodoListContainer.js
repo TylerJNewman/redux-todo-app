@@ -9,7 +9,7 @@ import {
   receiveTodo,
   removeTodo
 } from "../../actions/todo_actions.js";
-import { allTodos } from "../../reducers/selectors.js";
+import { allTodos, getVisibleTodos } from "../../reducers/selectors.js";
 
 class TodoListContainer extends React.Component {
   render() {
@@ -27,7 +27,7 @@ class TodoListContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  todos: allTodos(state),
+  todos: getVisibleTodos(allTodos(state), state.visibilityFilter),
   header: state.header
 });
 
