@@ -41,13 +41,13 @@ class TodoListItem extends React.Component {
 
   render() {
     const { checked } = this.state;
-    const { todo, updateTodo, removeTodo } = this.props;
+    const { todo, updateTodo, removeTodo, size } = this.props;
     const cardTitleClassName = classnames("card-title", {
       strike: checked
     });
     return (
       <div className={"scale-transition " + this.state.scale}>
-        <div className="col s12 m6 l4">
+        <div className={`col s12 m6 ${size}`}>
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <span className={cardTitleClassName + " " + this.state.checked}>
