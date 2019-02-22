@@ -47,7 +47,7 @@ class TodoListItem extends React.Component {
     });
     return (
       <div className={"scale-transition " + this.state.scale}>
-        <div className={`col s12 m6 ${size}`}>
+        <div className={`col s12 ${size}`}>
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <span className={cardTitleClassName + " " + this.state.checked}>

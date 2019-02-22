@@ -10,9 +10,9 @@ class TodoList extends React.Component {
     const todosLength = todos.length;
 
     let size;
-    size = todosLength > 8 ? "l4" : "l6";
-    size = todosLength > 12 ? "l3" : size;
-    size = todosLength < 5 ? "l6 offset-l3" : size;
+    size = todosLength > 8 ? "l4 m6" : "l6 m6";
+    size = todosLength > 12 ? "l3 m6" : size;
+    size = todosLength < 5 ? "l6 offset-l3 m6 offset-m3" : size;
 
     const todoItems = todos
       .reverse()

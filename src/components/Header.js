@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Header.css";
 
 class Header extends Component {
   // Here you can define your PropTypes.
@@ -48,21 +49,41 @@ class Header extends Component {
             <a href="#" className="brand-logo center">
               {title}
             </a>
-            <ul className="right ">
+            <ul className="right hide-on-med-and-down">
+              {/* <li>
+                <a href="sass.html">
+                  <i className="material-icons">search</i>
+                </a>
+              </li> */}
               <li>
-                <form id="navbarsearch">
-                  <div className="navfix">
-                    <div id="navfix2">
-                      <div className="input-field">
-                        <input id="search" type="search" required />
-                        <label className="label-icon" htmlFor="search">
-                          <i className="material-icons">search</i>
-                        </label>
-                        <i className="material-icons">close</i>
-                      </div>
-                    </div>
+                <form className="row">
+                  <div className="input-field col">
+                    {/* <input id="search" type="search" required /> */}
+                    <i className="material-icons prefix search-bar">search</i>
+                    <input
+                      type="text"
+                      id="autocomplete-input"
+                      className="autocomplete"
+                    />
+                    {/* <label className="label-icon" for="search"><i className="material-icons">search</i></label> */}
+                    <i className="material-icons">close</i>
                   </div>
                 </form>
+              </li>
+              <li>
+                <a href="badges.html">
+                  <i className="material-icons">view_module</i>
+                </a>
+              </li>
+              <li>
+                <a href="collapsible.html">
+                  <i className="material-icons">refresh</i>
+                </a>
+              </li>
+              <li>
+                <a href="mobile.html">
+                  <i className="material-icons">more_vert</i>
+                </a>
               </li>
             </ul>
             <ul className="left">

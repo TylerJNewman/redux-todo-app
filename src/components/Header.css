@@ -1,8 +1,12 @@
-.navfix {
+/* .navfix {
   position: relative;
   margin-right: 0;
 }
 
 .navfix2 {
   position: absolute;
+} */
+
+.material-icons.search-bar {
+  margin-top: -5px;
 }
