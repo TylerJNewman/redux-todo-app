@@ -5,7 +5,6 @@ import { stepsByTodoId } from "../../reducers/selectors";
 import { receiveStep } from "../../actions/step_actions";
 
 const mapStateToProps = (state, { todo_id }) => ({
-  hello: "help",
   steps: stepsByTodoId(state, todo_id),
   todo_id
 });

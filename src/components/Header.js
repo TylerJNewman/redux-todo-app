@@ -4,7 +4,7 @@ class Header extends Component {
   // Here you can define your PropTypes.
 
   render() {
-    const { title = "Welcome to React" } = this.props;
+    const { title } = this.props;
 
     return (
       <header>

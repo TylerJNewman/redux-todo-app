@@ -5,13 +5,6 @@ import uuidv4 from "uuid/v4";
 export class TodoForm extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      title: "",
-      body: "",
-      done: false
-    };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,12 +14,13 @@ export class TodoForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const todo = Object.assign({}, this.state, { id: uuidv4() });
+    const todo = Object.assign(
+      {},
+      { title: this.input.value },
+      { id: uuidv4() }
+    );
     this.props.receiveTodo(todo);
-    this.setState({
-      title: "",
-      body: ""
-    }); // reset form
+    this.input.value = "";
   }
 
   render() {
@@ -38,33 +32,11 @@ export class TodoForm extends Component {
               <div className="card-content white-text">
                 <input
                   className="input"
-                  onChange={this.update("title")}
-                  ref="title"
-                  value={this.state.title}
+                  ref={input => (this.input = input)}
                   placeholder="Add Title"
                   required
                 />
-                {/* 
-                <textarea
-                  id="textarea1"
-                  ref="body"
-                  className="materialize-textarea"
-                  onChange={this.update("body")}
-                  value={this.state.body}
-                  placeholder="Add Body"
-                  required
-                /> */}
               </div>
-              {/* <div className="card-action">
-
-                <button
-                  className="btn waves-effect waves-light"
-                  type="submit"
-                  name="action"
-                >
-                  <i className="material-icons">add</i>
-                </button>
-              </div> */}
             </form>
           </div>
         </div>

@@ -1,5 +1,7 @@
+import React from "react";
 import { connect } from "react-redux";
 import TodoList from "./TodoList";
+import StepListContainer from "../steps/StepListContainer";
 
 // Actions
 import {
@@ -9,8 +11,24 @@ import {
 } from "../../actions/todo_actions.js";
 import { allTodos } from "../../reducers/selectors.js";
 
+class TodoListContainer extends React.Component {
+  render() {
+    const { todos, receiveTodo, removeTodo } = this.props;
+    return this.props.header.currentView === "TODO_LIST" ? (
+      <TodoList
+        todos={todos}
+        receiveTodo={receiveTodo}
+        removeTodo={removeTodo}
+      />
+    ) : (
+      <StepListContainer />
+    );
+  }
+}
+
 const mapStateToProps = state => ({
-  todos: allTodos(state)
+  todos: allTodos(state),
+  header: state.header
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -21,4 +39,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoList);
+)(TodoListContainer);

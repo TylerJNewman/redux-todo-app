@@ -9,10 +9,11 @@ const StepList = ({ steps = [], todo_id, receiveStep }) => {
   ));
 
   return (
-    <div>
-      <ul className="step-list">{stepItems}</ul>
+    <section className="step-list">
       <StepForm todo_id={todo_id} receiveStep={receiveStep} />
-    </div>
+
+      {stepItems}
+    </section>
   );
 };
 

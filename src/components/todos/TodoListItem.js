@@ -42,8 +42,7 @@ class TodoListItem extends React.Component {
   render() {
     const { checked } = this.state;
     const { todo, updateTodo, removeTodo } = this.props;
-    const modalRef = "#" + todo.id;
-    const cardTitleClassName = classnames("card-title", "modal-trigger", {
+    const cardTitleClassName = classnames("card-title", {
       strike: checked
     });
     return (
@@ -52,10 +51,7 @@ class TodoListItem extends React.Component {
           <div className="col s12 m6 offset-m3">
             <div className="card blue-grey darken-1">
               <div className="card-content white-text">
-                <span
-                  className={cardTitleClassName + " " + this.state.checked}
-                  href={modalRef}
-                >
+                <span className={cardTitleClassName + " " + this.state.checked}>
                   {todo.title}
                 </span>
               </div>
@@ -82,6 +78,3 @@ class TodoListItem extends React.Component {
 }
 
 export default TodoListItem;
-
-// < !--Modal Trigger-- >
-// <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>

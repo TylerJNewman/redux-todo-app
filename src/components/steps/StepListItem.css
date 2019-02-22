@@ -1,0 +1,29 @@
+[type="checkbox"]:checked + span:not(.lever):before {
+  border-right: 2px solid #3bffed;
+  border-bottom: 2px solid #3fffed;
+}
+
+[type="checkbox"] + span:not(.lever):before,
+[type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+  border: 2px solid white;
+}
+
+.checkbox-form {
+  margin-top: -1px;
+}
+
+.card .card-action .delete {
+  margin-right: -1px !important;
+}
+
+.step-list .row {
+  margin-top: 20px;
+}
+
+.step-list .card-content {
+  white-space: pre-wrap;
+}
+
+.strike {
+  text-decoration: line-through;
+}
