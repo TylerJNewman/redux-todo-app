@@ -47,31 +47,25 @@ class TodoListItem extends React.Component {
     });
     return (
       <div className={"scale-transition " + this.state.scale}>
-        <article className="row">
-          <div className="col s12 m6 offset-m3">
-            <div className="card blue-grey darken-1">
-              <div className="card-content white-text">
-                <span className={cardTitleClassName + " " + this.state.checked}>
-                  {todo.title}
-                </span>
-              </div>
-              <div className="card-action">
-                <a
-                  href="#!"
-                  className="delete right"
-                  onClick={this.handleDelete}
-                >
-                  <i className="material-icons">close</i>
-                </a>
-                <Checkbox
-                  checked={todo.done}
-                  onStateChanged={this.toggleCheckBox}
-                  className="checkbox-white"
-                />
-              </div>
+        <div className="col s12 m6 l4">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className={cardTitleClassName + " " + this.state.checked}>
+                {todo.title}
+              </span>
+            </div>
+            <div className="card-action">
+              <a href="#!" className="delete right" onClick={this.handleDelete}>
+                <i className="material-icons">close</i>
+              </a>
+              <Checkbox
+                checked={todo.done}
+                onStateChanged={this.toggleCheckBox}
+                className="checkbox-white"
+              />
             </div>
           </div>
-        </article>
+        </div>
       </div>
     );
   }

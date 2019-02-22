@@ -21,7 +21,7 @@ class TodoList extends React.Component {
     return (
       <section className="todo-list">
         <TodoForm receiveTodo={receiveTodo} />
-        {todoItems}
+        <article className="row">{todoItems}</article>
       </section>
     );
   }
