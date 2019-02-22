@@ -10,13 +10,13 @@ const initialState = {
     title: "wash car",
     body: "with soap",
     done: false
+  },
+  2: {
+    id: 2,
+    title: "wash dog",
+    body: "with shampoo",
+    done: true
   }
-  // 2: {
-  //   id: 2,
-  //   title: "wash dog",
-  //   body: "with shampoo",
-  //   done: true
-  // }
 };
 
 const todosReducer = (state = initialState, action) => {
