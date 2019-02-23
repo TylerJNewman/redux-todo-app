@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv4 from "uuid/v4";
+import M from "materialize-css/dist/js/materialize.min.js";
 
 export class TodoForm extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    M.CharacterCounter.init(this.input);
   }
 
   update(property) {
@@ -14,9 +19,13 @@ export class TodoForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let title = this.input.value;
+    if (title.length > 45) {
+      return;
+    }
     const todo = Object.assign(
       {},
-      { title: this.input.value },
+      { title },
       { id: uuidv4() },
       { done: false }
     );
@@ -36,6 +45,7 @@ export class TodoForm extends Component {
                     className="input"
                     ref={input => (this.input = input)}
                     placeholder="Add Title"
+                    data-length="45"
                     required
                   />
                 </div>
