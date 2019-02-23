@@ -48,6 +48,7 @@ export class TodoForm extends Component {
                     data-length="35"
                     required
                   />
+                  {this.props.filter}
                 </div>
                 {/* <div className="input-field">
                   <input id="search" type="search" required />
