@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import { updateHeaderTitle } from "./actions/header_actions.js";
 
 const mapStateToProps = state => ({
-  headerTitle: state.header.headerTitle
+  headerTitle: state.header.headerTitle,
+  todos: state.todos
 });
 
 const mapDispatchToProps = dispatch => ({

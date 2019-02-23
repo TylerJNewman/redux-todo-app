@@ -15,15 +15,16 @@ window.stepsByTodoId = stepsByTodoId;
 class App extends Component {
   componentDidMount() {
     M.AutoInit();
-    // setTimeout(() => {
-    //   this.props.updateHeaderTitle("hey");
-    // }, 1000);
   }
 
   render() {
     return (
       <div className="App">
-        <Header title={this.props.headerTitle} />
+        <Header
+          title={this.props.headerTitle}
+          allTodos={allTodos}
+          {...this.props}
+        />
         <Content>
           <TodoList />
         </Content>
