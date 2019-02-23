@@ -1,23 +1,11 @@
 import React, { Component } from "react";
 import "./Header.css";
 import M from "materialize-css/dist/js/materialize.min.js";
+import fuzzyFilterFactory from "react-fuzzy-filter";
+
+const { InputFilter, FilterResults, changeInputValue } = fuzzyFilterFactory();
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    let { todos } = this.props;
-
-    let title = Object.keys(todos).map(id => todos[id].title);
-    let body = Object.keys(todos).map(id => todos[id].body);
-    let searchTerms = [...title, ...body].reduce((obj, term) => {
-      obj[term] = null;
-      return obj;
-    }, {});
-  }
-
   render() {
     const { title } = this.props;
 
@@ -34,17 +22,7 @@ class Header extends Component {
                   <i className="material-icons">search</i>
                 </a>
               </li> */}
-              <li>
-                <form className="row">
-                  <div className="input-field col">
-                    {/* <input id="search" type="search" required /> */}
-                    <i className="material-icons prefix search-bar">search</i>
-                    <input type="text" ref={input => (this.search = input)} />
-                    {/* <label className="label-icon" for="search"><i className="material-icons">search</i></label> */}
-                    <i className="material-icons">close</i>
-                  </div>
-                </form>
-              </li>
+
               <li>
                 <a href="badges.html">
                   <i className="material-icons">view_module</i>

@@ -50,8 +50,12 @@ class TodoListItem extends React.Component {
         <div className={`col s12 ${size}`}>
           <div className="card blue-grey darken-1 hoverable">
             <div className="card-content white-text">
-              <span className={cardTitleClassName + " " + this.state.checked}>
-                <h6 className="truncate"> {todo.title} </h6>
+              <span
+                className={
+                  cardTitleClassName + " truncate " + this.state.checked
+                }
+              >
+                {todo.title}
               </span>
             </div>
             <div className="card-action">

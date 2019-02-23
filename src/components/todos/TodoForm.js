@@ -20,7 +20,7 @@ export class TodoForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let title = this.input.value;
-    if (title.length > 45) {
+    if (title.length > 35) {
       return;
     }
     const todo = Object.assign(
@@ -45,7 +45,7 @@ export class TodoForm extends Component {
                     className="input"
                     ref={input => (this.input = input)}
                     placeholder="Add Title"
-                    data-length="45"
+                    data-length="35"
                     required
                   />
                 </div>
