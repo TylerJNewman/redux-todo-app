@@ -3,6 +3,7 @@ import App from "./App";
 import { connect } from "react-redux";
 // Actions
 import { updateHeaderTitle } from "./actions/header_actions.js";
+import { fetchTodos } from "./actions/todo_actions.js";
 
 const mapStateToProps = state => ({
   headerTitle: state.header.headerTitle,
@@ -10,7 +11,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateHeaderTitle: title => dispatch(updateHeaderTitle(title))
+  updateHeaderTitle: title => dispatch(updateHeaderTitle(title)),
+  fetchTodos: () => dispatch(fetchTodos())
 });
 
 export default connect(

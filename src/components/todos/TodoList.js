@@ -42,8 +42,8 @@ class TodoList extends React.Component {
     );
 
     const filter = (
-      <div class="row">
-        <div class="input-field col s12 m8 offset-m2 ">
+      <div className="row">
+        <div className="input-field col s12 m8 offset-m2 ">
           <InputFilter debounceTime={0} />
         </div>
       </div>

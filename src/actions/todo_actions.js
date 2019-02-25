@@ -1,3 +1,5 @@
+import localForage from "localforage";
+
 export const RECEIVE_TODOS = "RECEIVE_TODOS";
 export const RECEIVE_TODO = "RECEIVE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
@@ -34,4 +36,11 @@ export const VisibilityFilters = {
   SHOW_ALL: SHOW_ALL,
   SHOW_COMPLETED: SHOW_COMPLETED,
   SHOW_ACTIVE: SHOW_ACTIVE
+};
+
+export const fetchTodos = () => dispatch => {
+  localForage.getItem("Redux_Todo_App").then(data => {
+    const todos = JSON.parse(data).todos;
+    dispatch(receiveTodos(todos));
+  });
 };

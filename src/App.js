@@ -15,6 +15,7 @@ window.stepsByTodoId = stepsByTodoId;
 class App extends Component {
   componentDidMount() {
     M.AutoInit();
+    this.props.fetchTodos();
   }
 
   render() {
