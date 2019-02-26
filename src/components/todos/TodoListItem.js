@@ -2,6 +2,8 @@ import React from "react";
 import Checkbox from "../CheckBox";
 import classnames from "classnames";
 import "./TodoListItem.css";
+import { RIEInput } from "riek";
+import _ from "lodash";
 
 class TodoListItem extends React.Component {
   constructor(props) {
@@ -11,12 +13,14 @@ class TodoListItem extends React.Component {
       scale: "scale-out",
       detail: false,
       checked: this.props.todo.done,
+      title: this.props.todo.title,
       editMode: false
     };
 
     this.handleDelete = this.handleDelete.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.toggleCheckBox = this.toggleCheckBox.bind(this);
+    this.saveTitle = this.saveTitle.bind(this);
   }
 
   componentDidMount() {
@@ -50,7 +54,20 @@ class TodoListItem extends React.Component {
   }
 
   update(property) {
+    debugger;
     return e => this.setState({ [property]: e.target.value });
+  }
+
+  saveTitle({ title }) {
+    if (title.length > 35) {
+      return;
+    }
+    const updatedTodo = Object.assign({}, this.props.todo, {
+      title
+    });
+    this.props.receiveTodo(updatedTodo);
+
+    this.setState({ title });
   }
 
   handleSubmit(e) {
@@ -66,21 +83,30 @@ class TodoListItem extends React.Component {
   }
 
   renderTitle(todo) {
-    if (this.state.editMode) {
-      return (
-        <input
-          className="input"
-          ref={input => (this.input = input)}
-          placeholder={todo.title}
-          autoFocus={true}
-          value={todo.title}
-        />
-      );
-    }
+    // if (this.state.editMode) {
+    //   return (
+    //     <input
+    //       className="input"
+    //       ref={input => (this.input = input)}
+    //       placeholder={todo.title}
+    //       autoFocus={true}
+    //       value={todo.title}
+    //     />
+    //   );
+    // }
+    // return (
+    //   <span onClick={this.handleClick} className="">
+    //     {todo.title}
+    //   </span>
+    // );
     return (
-      <span onClick={this.handleClick} className="">
-        {todo.title}
-      </span>
+      <RIEInput
+        value={this.state.title}
+        change={this.saveTitle}
+        propName="title"
+        validate={_.isString}
+        className="input"
+      />
     );
   }
 
