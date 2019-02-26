@@ -19,8 +19,12 @@ main {
   text-align: center;
 }
 
-textarea.materialize-textarea {
+input.input {
   color: #ffffff !important;
+  height: inherit !important;
+  border-bottom: none !important;
+  margin: 0 0 0px 0 !important;
+  text-align: center;
 }
 
 input:not([type]) {

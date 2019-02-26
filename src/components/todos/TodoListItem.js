@@ -2,7 +2,6 @@ import React from "react";
 import Checkbox from "../CheckBox";
 import classnames from "classnames";
 import "./TodoListItem.css";
-import TodoDetailViewContainer from "./TodoDetailViewContainer";
 
 class TodoListItem extends React.Component {
   constructor(props) {
@@ -11,10 +10,12 @@ class TodoListItem extends React.Component {
     this.state = {
       scale: "scale-out",
       detail: false,
-      checked: this.props.todo.done
+      checked: this.props.todo.done,
+      editMode: false
     };
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.toggleCheckBox = this.toggleCheckBox.bind(this);
   }
 
@@ -39,12 +40,57 @@ class TodoListItem extends React.Component {
     this.props.receiveTodo(toggledTodo);
   }
 
+  handleClick(e) {
+    const newState = Object.assign(this.state, {
+      editMode: !this.state.editMode
+    });
+
+    this.setState(newState);
+    // e.currentTarget.focus();
+  }
+
+  update(property) {
+    return e => this.setState({ [property]: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    debugger;
+    let title = this.input.value;
+    if (title.length > 35) {
+      return;
+    }
+    const todo = Object.assign({});
+    this.props.receiveTodo(todo);
+    this.input.value = "";
+  }
+
+  renderTitle(todo) {
+    if (this.state.editMode) {
+      return (
+        <input
+          className="input"
+          ref={input => (this.input = input)}
+          placeholder={todo.title}
+          autoFocus={true}
+          value={todo.title}
+        />
+      );
+    }
+    return (
+      <span onClick={this.handleClick} className="">
+        {todo.title}
+      </span>
+    );
+  }
+
   render() {
     const { checked } = this.state;
     const { todo, updateTodo, removeTodo, size } = this.props;
     const cardTitleClassName = classnames("card-title", {
       strike: checked
     });
+
     return (
       <div className={"scale-transition " + this.state.scale}>
         <div className={`col s12 ${size}`}>
@@ -55,7 +101,7 @@ class TodoListItem extends React.Component {
                   cardTitleClassName + " truncate " + this.state.checked
                 }
               >
-                {todo.title}
+                {this.renderTitle(todo)}
               </span>
             </div>
             <div className="card-action">
