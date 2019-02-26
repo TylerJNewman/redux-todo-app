@@ -1,13 +1,29 @@
 import React, { Component } from "react";
 import "./Header.css";
 import M from "materialize-css/dist/js/materialize.min.js";
-import fuzzyFilterFactory from "react-fuzzy-filter";
+import SearchTitle from "./SearchTitle";
+import "semantic-ui-css/semantic.min.css";
+import _ from "lodash";
+import faker from "faker";
+import { allTodos } from "../reducers/selectors";
 
-const { InputFilter, FilterResults, changeInputValue } = fuzzyFilterFactory();
+// const source = _.times(5, () => ({
+//   title: faker.company.companyName()
+//   // description: faker.company.catchPhrase(),
+//   // image: faker.internet.avatar(),
+//   // price: faker.finance.amount(0, 100, 2, "$")
+// }));
 
 class Header extends Component {
+  componentDidMount() {}
   render() {
-    const { title } = this.props;
+    const { title, todos } = this.props;
+    let source;
+    if (Object.keys(todos).length > 0) {
+      source = allTodos({ todos });
+    } else {
+      source = {};
+    }
 
     return (
       <header>
@@ -23,6 +39,11 @@ class Header extends Component {
                 </a>
               </li> */}
 
+              <li>
+                <div className="test">
+                  <SearchTitle source={source} />
+                </div>
+              </li>
               <li>
                 <a href="badges.html">
                   <i className="material-icons">view_module</i>

@@ -21,11 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
-          title={this.props.headerTitle}
-          allTodos={allTodos}
-          {...this.props}
-        />
+        <Header title={this.props.headerTitle} {...this.props} />
         <Content>
           <TodoList />
         </Content>

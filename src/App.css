@@ -32,3 +32,10 @@ input:not([type]) {
   font-size: 24px !important;
   font-weight: 300 !important;
 }
+
+/* UI Search Retain Custom CSS from React Semantic UI */
+
+.ui.icon.input > input.prompt {
+  height: inherit;
+  width: inherit;
+}

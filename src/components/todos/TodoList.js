@@ -51,7 +51,7 @@ class TodoList extends React.Component {
 
     return (
       <section className="todo-list">
-        {filter}
+        {/* {filter} */}
         <TodoForm receiveTodo={receiveTodo} />
         <article className="row">{filtered}</article>
       </section>
