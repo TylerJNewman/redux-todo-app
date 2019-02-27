@@ -22,8 +22,14 @@ export default class SearchStandard extends Component {
   resetComponent = () =>
     this.setState({ isLoading: false, results: [], value: "" });
 
-  handleResultSelect = (e, { result }) =>
+  updateResults = () => {
+    this.props.updateResults(this.state.results);
+  };
+
+  handleResultSelect = (e, { result }) => {
+    this.updateResults();
     this.setState({ value: result.title });
+  };
 
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value });
@@ -38,7 +44,7 @@ export default class SearchStandard extends Component {
         isLoading: false,
         results: _.filter(this.props.source, isMatch)
       });
-    }, 300);
+    }, 1);
   };
 
   render() {
@@ -50,7 +56,7 @@ export default class SearchStandard extends Component {
           <Search
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
-            onSearchChange={_.debounce(this.handleSearchChange, 500, {
+            onSearchChange={_.debounce(this.handleSearchChange, 1, {
               leading: true
             })}
             results={results}

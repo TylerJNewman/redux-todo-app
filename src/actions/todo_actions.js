@@ -1,6 +1,7 @@
 import localForage from "localforage";
 
 export const RECEIVE_TODOS = "RECEIVE_TODOS";
+export const RECEIVE_FILTERED_TODOS = "RECEIVE_FILTERED_TODOS";
 export const RECEIVE_TODO = "RECEIVE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
 export const SET_VISIBILITY_FILTER = "SET_VISIBILITY_FILTER";
@@ -12,6 +13,14 @@ export function receiveTodos(todos) {
   return {
     type: RECEIVE_TODOS,
     todos
+  };
+}
+
+export function receiveFilteredTodos(filteredTodos) {
+  debugger;
+  return {
+    type: RECEIVE_FILTERED_TODOS,
+    filteredTodos
   };
 }
 
@@ -39,6 +48,7 @@ export const VisibilityFilters = {
 };
 
 export const fetchTodos = () => dispatch => {
+  debugger;
   localForage.getItem("Redux_Todo_App").then(data => {
     const todos = JSON.parse(data).todos;
     dispatch(receiveTodos(todos));

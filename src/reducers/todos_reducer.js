@@ -1,7 +1,8 @@
 import {
   RECEIVE_TODOS,
   RECEIVE_TODO,
-  REMOVE_TODO
+  REMOVE_TODO,
+  RECEIVE_FILTERED_TODOS
 } from "../actions/todo_actions.js";
 
 const initialState = {};
@@ -30,8 +31,10 @@ const todosReducer = (state = initialState, action) => {
         let todo = action.todos[key];
         nextState[todo.id] = todo;
       });
-
       return nextState;
+    case RECEIVE_FILTERED_TODOS:
+      debugger;
+      return Object.assign({}, state, { filteredTodos: action.filteredTodos });
     case RECEIVE_TODO:
       return Object.assign({}, state, { [action.todo.id]: action.todo });
     case REMOVE_TODO:

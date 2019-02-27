@@ -6,6 +6,8 @@ import "semantic-ui-css/semantic.min.css";
 import _ from "lodash";
 import faker from "faker";
 import { allTodos } from "../reducers/selectors";
+import { connect } from "react-redux";
+import { receiveFilteredTodos } from "../actions/todo_actions";
 
 // const source = _.times(5, () => ({
 //   title: faker.company.companyName()
@@ -41,7 +43,10 @@ class Header extends Component {
 
               <li>
                 <div className="test">
-                  <SearchTitle source={source} />
+                  <SearchTitle
+                    source={source}
+                    updateResults={this.props.receiveFilteredTodos}
+                  />
                 </div>
               </li>
               <li>
@@ -91,4 +96,11 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapDispatchToProps = dispatch => ({
+  receiveFilteredTodos: todos => dispatch(receiveFilteredTodos(todos))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Header);

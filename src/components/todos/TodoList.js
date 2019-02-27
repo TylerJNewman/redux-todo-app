@@ -21,25 +21,36 @@ class TodoList extends React.Component {
     size = todosLength > 12 ? "l3 m6" : size;
     size = todosLength < 5 ? "l6 offset-l3 m6 offset-m3" : size;
 
-    const filtered = (
-      <FilterResults items={todos} fuseConfig={fuseConfig}>
-        {filteredItems => {
-          return (
-            <div>
-              {filteredItems.map(todo => (
-                <TodoListItem
-                  size={size}
-                  key={todo.id}
-                  todo={todo}
-                  receiveTodo={receiveTodo}
-                  removeTodo={removeTodo}
-                />
-              ))}
-            </div>
-          );
-        }}
-      </FilterResults>
-    );
+    // const filtered = (
+    //   <FilterResults items={todos} fuseConfig={fuseConfig}>
+    //     {filteredItems => {
+    //       return (
+    //         <div>
+    //           {filteredItems.map(todo => (
+    //             <TodoListItem
+    //               size={size}
+    //               key={todo.id}
+    //               todo={todo}
+    //               receiveTodo={receiveTodo}
+    //               removeTodo={removeTodo}
+    //             />
+    //           ))}
+    //         </div>
+    //       );
+    //     }}
+    //   </FilterResults>
+    // );
+
+    const filtered = todos =>
+      todos.map(todo => (
+        <TodoListItem
+          size={size}
+          key={todo.id}
+          todo={todo}
+          receiveTodo={receiveTodo}
+          removeTodo={removeTodo}
+        />
+      ));
 
     const filter = (
       <div className="row">
@@ -53,7 +64,7 @@ class TodoList extends React.Component {
       <section className="todo-list">
         {/* {filter} */}
         <TodoForm receiveTodo={receiveTodo} />
-        <article className="row">{filtered}</article>
+        <article className="row">{filtered(todos)}</article>
       </section>
     );
   }

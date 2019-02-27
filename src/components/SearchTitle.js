@@ -10,8 +10,14 @@ resultRenderer.propTypes = {
   //   description: PropTypes.string
 };
 
-const SearchTitle = ({ source }) => {
-  return <SearchStandard resultRenderer={resultRenderer} source={source} />;
+const SearchTitle = ({ source, updateResults }) => {
+  return (
+    <SearchStandard
+      resultRenderer={resultRenderer}
+      source={source}
+      updateResults={updateResults}
+    />
+  );
 };
 
 export default SearchTitle;
